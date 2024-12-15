@@ -11,7 +11,6 @@ class IsOwner(BasePermission):
 class UserListCreateAPIView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
 
 class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     queryset = User.objects.all()

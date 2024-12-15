@@ -1,10 +1,9 @@
 from django.urls import path
-from .views import UserListCreateAPIView, UserRetrieveUpdateAPIView, IncidentListCreateAPIView, IncidentRetrieveUpdateAPIView, CustomAuthToken
+from .views import UserListCreateAPIView, UserRetrieveUpdateAPIView, IncidentListCreateAPIView, IncidentRetrieveUpdateAPIView
 
 urlpatterns = [
-    path('api/users/', UserListCreateAPIView.as_view(), name='user-list-create'),
-    path('api/users/<int:pk>/', UserRetrieveUpdateAPIView.as_view(), name='user-retrieve-update'),
-    path('api/incidents/', IncidentListCreateAPIView.as_view(), name='incident-list-create'),
-    path('api/incidents/<int:pk>/', IncidentRetrieveUpdateAPIView.as_view(), name='incident-retrieve-update'),
-    path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
+    path('user/login/', UserListCreateAPIView.as_view(), name='user-list-create'),
+    path('users/<int:pk>/', UserRetrieveUpdateAPIView.as_view(), name='user-retrieve-update'),
+    path('incidents/', IncidentListCreateAPIView.as_view(), name='incident-list-create'),
+    path('incidents/<int:pk>/', IncidentRetrieveUpdateAPIView.as_view(), name='incident-retrieve-update'),
 ]
