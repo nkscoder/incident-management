@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import UserListCreateAPIView, UserRetrieveUpdateAPIView, IncidentListCreateAPIView, IncidentRetrieveUpdateAPIView
+from .views import RegisterUserView, ListIncidentAPIView, CreateIncidentAPIView,IncidentRetrieveUpdateAPIView,CustomAuthToken
+
 
 urlpatterns = [
-    path('user/login/', UserListCreateAPIView.as_view(), name='user-list-create'),
-    path('users/<int:pk>/', UserRetrieveUpdateAPIView.as_view(), name='user-retrieve-update'),
-    path('incidents/', IncidentListCreateAPIView.as_view(), name='incident-list-create'),
+    path('register/', RegisterUserView.as_view(), name='register_user'),
+    path('incidents/create/', CreateIncidentAPIView.as_view(), name='create-incident'),
+    path('incidents/list/', ListIncidentAPIView.as_view(), name='list-incident'),
+
     path('incidents/<int:pk>/', IncidentRetrieveUpdateAPIView.as_view(), name='incident-retrieve-update'),
+    path('user/login/', CustomAuthToken.as_view(), name='api_token_auth'),
 ]

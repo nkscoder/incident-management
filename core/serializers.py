@@ -7,8 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'phone_number', 'address', 'pin_code', 'city', 'country']
 
 class IncidentSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    user = UserSerializer(read_only=True)  
     class Meta:
         model = Incident
         fields = [
